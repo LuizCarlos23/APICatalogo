@@ -29,7 +29,7 @@ namespace APICatalogo.Controllers
             return _context.Categorias.AsNoTracking().ToList();
         }
 
-        [HttpGet("{id:int}", Name = "ObterCategoria")]
+        [HttpGet("{id:int:min(1)}", Name = "ObterCategoria")]
         public ActionResult<Categoria> get(int id)
         {
             var categoria = _context.Categorias?.AsNoTracking().FirstOrDefault(c => c.Id == id);
@@ -52,7 +52,7 @@ namespace APICatalogo.Controllers
             return new CreatedAtRouteResult("ObterCategoria", new { id = categoria.Id }, categoria);
         }
 
-        [HttpPut("{id:int}")]
+        [HttpPut("{id:int:min(1)}")]
         public ActionResult<Categoria> Put(int id,  Categoria categoria)
         {
             if (id != categoria.Id)
@@ -64,7 +64,7 @@ namespace APICatalogo.Controllers
             return Ok(categoria);
         }
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("{id:int:min(1)}")]
         public ActionResult<Categoria> Delete(int id)
         {
             var categoria = _context.Categorias?.FirstOrDefault(c => c.Id == id);
