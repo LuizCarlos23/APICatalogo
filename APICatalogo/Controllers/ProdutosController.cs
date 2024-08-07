@@ -21,7 +21,7 @@ namespace APICatalogo.Controllers
         public ActionResult<IEnumerable<Produto>> Get()
         {
             var produtos = _context.Produtos?.ToList();
-
+            
             if (produtos is null)
             {
                 return NotFound();
