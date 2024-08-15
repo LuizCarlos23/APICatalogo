@@ -34,6 +34,7 @@ namespace APICatalogo.Controllers
         [HttpGet("{id:int:min(1)}", Name = "ObterCategoria")]
         public ActionResult<Categoria> get(int id)
         {
+            throw new NotImplementedException("Ocorreu um probleminha!");
             var categoria = _context.Categorias?.AsNoTracking().FirstOrDefault(c => c.Id == id);
 
             if (categoria is null)
